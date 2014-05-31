@@ -15,17 +15,17 @@ $ npm install co-bcrypt
 
 ## Setup
 
-Call `wrap()` on bcrypt instances to make them generator friendly:
+Call `wrap()` on bcrypt module instances to make them generator friendly:
 
 ```js
 // using nan-ified bcrypt (requires node 0.11.13)
-var bcrypt = require ('nan-bcrypt');
+var module = require ('nan-bcrypt');
 
 // or the pure js version 
-// var bcrypt = require ('bcryptjs');
+// var module = require ('bcryptjs');
 
 var wrap = require ('co-bcrypt');
-var crypt = wrap(bcrypt);
+var bcrypt = wrap(module);
 
 ```
 
@@ -36,13 +36,11 @@ Simple example:
 ```js	
 // inside co
 co(function * (){
-	var bcrypt = wrap(nan);
 	var salt = yield bcrypt.genSalt();
 	var hash = yield bcrypt.hash('tobi', salt);
 	var compared = yield bcrypt.compare('tobi', hash);
-
 	console.log (salt, hash, compared);
-})(done);
+})();
 ```
 
 ## Test
