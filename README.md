@@ -33,17 +33,16 @@ var crypt = wrap(bcrypt);
 
 Simple example:
 
-```js
-	
-	// inside co
-	co(function * (){
-		var bcrypt = wrap(nan);
-		var salt = yield bcrypt.genSalt();
-		var hash = yield bcrypt.hash('tobi', salt);
-		var compared = yield bcrypt.compare('tobi', hash);
+```js	
+// inside co
+co(function * (){
+	var bcrypt = wrap(nan);
+	var salt = yield bcrypt.genSalt();
+	var hash = yield bcrypt.hash('tobi', salt);
+	var compared = yield bcrypt.compare('tobi', hash);
 
-		console.log (salt, hash, compared);
-	})(done);
+	console.log (salt, hash, compared);
+})(done);
 ```
 
 ## Test
